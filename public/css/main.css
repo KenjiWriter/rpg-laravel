@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+body {
+			height: 100%;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+			font-size: 20px;
+			background-color: rgb(120, 30, 0);
+			font-family: 'Montserrat', sans-serif;
+			overflow-x: hidden;
+		}
+
+		h3 {
+			text-align: center;
+			font-size: 30px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+
+			font-family: Trebuchet MS;
+		}
+
+		#content {
+			width: 1000px;
+			min-height: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			background-color:  rgb(40, 40, 40);
+			border-color: rgb(40, 40, 40);
+			border: 3px solid rgb(20, 20, 20);
+
+			color: rgb(220, 220, 220);
+		}
+
+		#menu {
+			margin: 0px;
+			padding: 0px;
+
+		}
+
+		#menu ul {
+			margin: 0px;
+		}
+
+		#menu li {
+			padding: 4px;
+			margin-right: 10px;
+			list-style: none;
+			display: inline-block;
+		}
+
+		#menu a {
+			display: block;
+			min-width: 100px;
+			padding: 4px;
+			color: rgb(230,230,230);
+			text-decoration: none;
+		}
+		#menu a:hover {
+			background-color: rgb(180,180,180);
+
+		}
+
+			/* Page content style */
+		.FormContainer {
+			margin-top: 5px;
+			width: 50%;
+			padding: 10px;
+			background-color: rgb(50, 50, 50);
+			border-radius: 5px;
+		}
+
+		.FormContainer input select {
+			margin-bottom: 2px;
+			margin-top: 5px;
+		}
+
+		p.pageTitle {
+			font-size: 25px;
+			margin-top: 3px;
+			margin-bottom: 5px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: rgb(90, 0, 0);
+		}
+
+		label {
+			display: inline-block;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		.centerDiv {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		table {
+			margin-top: 15px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid rgb(0,0,0);
+
+			border-collapse: collapse;
+			border-spacing: 0px;
+		}
+
+		th {
+			background-color: rgb(20,20,20);
+			color: rgb(210,210,210);
+			border: 1px solid rgb(0,0,0);
+		}
+
+		td {
+			border: 1px solid rgb(0,0,0);
+		}
+		
