@@ -58,6 +58,12 @@ class authController extends Controller
         $user->coins = 10;
         $user->health = 100;
         $user->mana = 50.00;
+        $user->physical_damage = 5.00;
+        $user->physical_damage_max = 7.00;
+        $user->magical_damage = 0.00;
+        $user->magical_damage_max = 0.00;
+        $user->critical_chance = 5.00;
+        $user->stamina = 50.00;
         $user->stamina = 50.00;
         $user->strength = 1;
         $user->intelligence = 1;

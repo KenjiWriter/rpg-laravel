@@ -16,9 +16,10 @@ Route::group(['middleware'=>['authCheck']], function(){
     Route::get('/login', [mainController::class, 'login'])->name('auth.login');
     Route::get('/register', [mainController::class, 'register'])->name('auth.register');
 
-
+    //Stats
+    Route::post('/stat/add', [mainController::class, 'statAdd'])->name('stat.add');
     //User
-    Route::group(['middleware'=>['lvlCheck']], function(){
+    Route::group(['middleware'=>['lvlCheck', 'statsCheck']], function(){
         Route::get('/profile', [mainController::class, 'profile'])->name('user.profile');
     });
 

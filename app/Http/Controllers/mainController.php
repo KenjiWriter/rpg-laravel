@@ -17,6 +17,34 @@ class mainController extends Controller
              return $number;
          }
     }
+
+    public function statAdd(Request $request) 
+    {
+        function add($stat) 
+        {
+            $user = user::where('id','=',auth()->user()->id)->first();
+            $user->stats_point -= 1;
+            $user->$stat += 1;
+            $user->save();
+        }
+        
+        if(isset($request->strength)) {
+            add("strength");
+            return back()->with('added', '+1 strength point');
+        }
+        if(isset($request->intelligence)) {
+            add("intelligence");
+            return back()->with('added', '+1 intelligence point');
+        }
+        if(isset($request->endurance)) {
+            add("endurance");
+            return back()->with('added', '+1 endurance point');
+        }
+        if(isset($request->luck)) {
+            add("luck");
+            return back()->with('added', '+1 luck point');
+        }
+    }
     
     function login() 
     {
@@ -45,6 +73,11 @@ class mainController extends Controller
         $intelligence = $this->numConverter($user->intelligence);
         $endurance = $this->numConverter($user->endurance);
         $luck = $this->numConverter($user->luck);
-        return view('user.profile', compact('exp', 'exp_needed', 'health', 'mana', 'stamina', 'strength', 'intelligence', 'endurance', 'luck'));
+        $crit_chance = $this->numConverter($user->critical_chance);
+        $dmg = $this->numConverter($user->physical_damage);
+        $dmg_max = $this->numConverter($user->physical_damage_max);
+        $magic_dmg = $this->numConverter($user->magical_damage);
+        $magic_dmg_max = $this->numConverter($user->magical_damage_max);
+        return view('user.profile', compact('exp', 'exp_needed', 'health', 'mana', 'stamina', 'strength', 'intelligence', 'endurance', 'luck', 'dmg', 'dmg_max', 'magic_dmg', 'magic_dmg_max', 'crit_chance'));
     }
 }

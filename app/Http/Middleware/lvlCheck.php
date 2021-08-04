@@ -27,12 +27,17 @@ class lvlCheck
             $user->save();
         }
         
-                while($user->exp >= $user->exp_needed) {  
-                    $user->exp -= auth()->user()->exp_needed;
-                    $user->level += 1;
-                    $user->stats_point += 3;
-                    $user->save();
-                }
+        while($user->exp >= $user->exp_needed) {  
+            $user->exp -= auth()->user()->exp_needed;
+            $user->level += 1;
+            $user->stats_point += 3;
+            if(auth()->user()->level < 5) {
+                $user->exp_needed = $user->level*5;
+            } else {
+                $user->exp_needed = $user->level*2.5;
+            }
+            $user->save();
+        }
         return $next($request);
     }
 }

@@ -4,7 +4,6 @@ body {
 			width: 100%;
 			margin: 0px;
 			padding: 0px;
-			font-size: 20px;
 			background-color: rgb(120, 30, 0);
 			font-family: 'Montserrat', sans-serif;
 			overflow-x: hidden;
@@ -21,7 +20,7 @@ body {
 
 		#content {
 			width: 1000px;
-			min-height: 100%;
+			min-height: 500px;
 			margin-left: auto;
 			margin-right: auto;
 			text-align: center;
@@ -64,7 +63,7 @@ body {
 			/* Page content style */
 		.FormContainer {
 			margin-top: 5px;
-			width: 50%;
+			width: 70%;
 			padding: 10px;
 			background-color: rgb(50, 50, 50);
 			border-radius: 5px;
@@ -116,4 +115,23 @@ body {
 		td {
 			border: 1px solid rgb(0,0,0);
 		}
-		
+
+		blue {
+			color:aqua;
+		}
+
+		red {
+			color: rgb(207, 16, 16);
+		}
+
+		deepblue {
+			color: rgb(16, 67, 207);
+		}
+
+		green {
+			color: rgb(22, 207, 16);
+		}
+
+		yellow {
+			color: rgb(255, 238, 0);
+		}
