@@ -50,6 +50,7 @@ class authController extends Controller
         //Insert data into database
         $user = new User;
         $user->login = $request->login;
+        $user->admin_power = 0;
         $user->password = Hash::make($request->password);
         $user->level = 1;
         $user->stats_point = 1;

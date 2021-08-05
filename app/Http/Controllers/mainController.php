@@ -54,6 +54,11 @@ class mainController extends Controller
         return view('auth.login');
     }
 
+    function test()
+    {
+        return view('test');
+    }
+
     function register()
     {
         return view('auth.register');
