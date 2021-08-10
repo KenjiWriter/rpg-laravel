@@ -9,6 +9,11 @@
     <div style="color: red">{{ Session::get('fail') }}</div>
     @endif
     @csrf
+    <label for="class" style="width: 15em;">Monster class:</label>
+    <select style="margin:1em;" name="class">
+        <option value="0">Normal</option>
+        <option value="1">Boss</option>
+    </select><br>
     <label for="name" style="width: 15em;">Monster name:</label><input type="text" name="name" id="" placeholder="Wolf"><br>
     <span align="center" style="color: red;">@error('name') {{ $message }} <br> @enderror</span><br>
     <label for="level" style="width: 15em;">Monster level:</label><input type="number" name="level" id="" placeholder="level"><br>

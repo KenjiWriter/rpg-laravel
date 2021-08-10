@@ -69,7 +69,7 @@ body {
 			border-radius: 5px;
 		}
 
-		.FormContainer input select {
+		.FormContainer input.select {
 			margin-bottom: 2px;
 			margin-top: 5px;
 		}

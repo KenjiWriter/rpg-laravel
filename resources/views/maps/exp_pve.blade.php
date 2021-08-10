@@ -1,20 +1,34 @@
 @include('template.header')
 @include('template.menu')
 <div class="FormContainer centerDiv">
-    <h3>Woods</h3>
+    <h3>{{ $current_map }}</h3>
+    @if(session::get('success'))
+    <green>{{ session::get('success') }}</green>
+    @endif
+    @if(session::get('fail'))
+    <red>{{ session::get('fail') }}</red>
+    @endif
     <div style="display: flex;">
         <div class="FormContainer">
             <img src="{{ asset('avatars/1.PNG') }}" alt="avatar" style="border-radius: 10%; width: 200px; height: 150px">
             <h3>{{ auth()->user()->login }} [LVL. {{ auth()->user()->level }}]</h3>
             <hr>
             <b style="margin-right: 10px;"><red>HP</red></b><progress value="{{ $player_current_hp}}" max="{{ auth()->user()->health }}"></progress>
+            <br>{{ $player_current_hp }}/{{ auth()->user()->health }}
         </div>
         <div class="FormContainer">
             @foreach ($monster as $enemi)
             <img src="{{ asset('monsters/wild_dog.PNG') }}" alt="avatar" style="border-radius: 10%; width: 200px; height: 150px">
-            <h3>{{ $enemi->name }} [LVL. {{ $enemi->level }}]</h3> 
+            <h3>
+                @if ($enemi->class == 1)
+                [BOSS] <br>
+                @endif
+                {{ $enemi->name }} <br>
+                 [LVL. {{ $enemi->level }}]
+                </h3> 
             <hr>
             <b style="margin-right: 10px;"><red>HP</red></b><progress value="{{ $monster_current_hp }}" max="{{ $enemi->health }}"></progress>
+            <br>{{ $monster_current_hp }}/{{ $enemi->health }}
             @endforeach
         </div>
     </div>

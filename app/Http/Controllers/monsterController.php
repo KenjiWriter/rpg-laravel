@@ -35,6 +35,7 @@ class monsterController extends Controller
         $monster->health = $request->health;
         $monster->damage = $request->dmg;
         $monster->damage_max = $request->dmg_max;
+        $monster->class = $request->class;
         $save = $monster->save();
 
         if($save) {
