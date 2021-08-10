@@ -4,7 +4,7 @@
         <br>
         <li><a href='{{ route('user.profile') }}'>Profile</a></li>
         <li><a href=''>Shop</a></li>
-        <li><a href=''>Adventure</a></li>
+        <li><a href='{{ route('user.adventure') }}'>Adventure</a></li>
         <li><a href=''>blacksmith</a></li>
         <li><a href=''>Alhemist</a></li>
         <br>

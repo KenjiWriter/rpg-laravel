@@ -20,29 +20,34 @@ class mainController extends Controller
 
     public function statAdd(Request $request) 
     {
-        function add($stat) 
+        function add($stat, $points) 
         {
             $user = user::where('id','=',auth()->user()->id)->first();
-            $user->stats_point -= 1;
-            $user->$stat += 1;
+            if($points > auth()->user()->stats_point) {
+                return back()->with('fail', 'Fail! Not enought point!');
+            }
+            $user->stats_point -= $points;
+            $user->$stat += $points;
             $user->save();
         }
-        
+        $points = $request->amount;
+        if($points == 0 || !$points) $points = 1;
+
         if(isset($request->strength)) {
-            add("strength");
-            return back()->with('added', '+1 strength point');
+            add("strength", $points);
+            return back()->with('added', '+'.$points.' strength point');
         }
         if(isset($request->intelligence)) {
-            add("intelligence");
-            return back()->with('added', '+1 intelligence point');
+            add("intelligence", $points);
+            return back()->with('added', '+'.$points.' intelligence point');
         }
         if(isset($request->endurance)) {
-            add("endurance");
-            return back()->with('added', '+1 endurance point');
+            add("endurance", $points);
+            return back()->with('added', '+'.$points.' endurance point');
         }
         if(isset($request->luck)) {
-            add("luck");
-            return back()->with('added', '+1 luck point');
+            add("luck", $points);
+            return back()->with('added', '+'.$points.' luck point');
         }
     }
     

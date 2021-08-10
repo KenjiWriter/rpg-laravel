@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\monsterController;
+use App\Http\Controllers\adventureController;
 
 
 Route::get('/auth/logout', [authController::class, 'logout'])->name('auth.logout');
@@ -22,6 +23,8 @@ Route::group(['middleware'=>['authCheck']], function(){
     //User
     Route::group(['middleware'=>['lvlCheck', 'statsCheck']], function(){
         Route::get('/profile', [mainController::class, 'profile'])->name('user.profile');
+        Route::get('/adventure', [adventureController::class, 'adventure'])->name('user.adventure');
+        Route::get('/adventure/woods', [adventureController::class, 'woods'])->name('user.adventure.woods');
     });
 
     //Admin

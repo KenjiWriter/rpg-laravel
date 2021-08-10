@@ -74,6 +74,10 @@ body {
 			margin-top: 5px;
 		}
 
+		.input:focus {
+			outline: none;
+		}
+
 		p.pageTitle {
 			font-size: 25px;
 			margin-top: 3px;
@@ -114,6 +118,11 @@ body {
 
 		td {
 			border: 1px solid rgb(0,0,0);
+		}
+
+		a {
+			text-decoration: none;	
+			color: white;
 		}
 
 		blue {
