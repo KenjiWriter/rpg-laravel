@@ -18,7 +18,7 @@ class monsterController extends Controller
         return view('admin.addmonster');
     }
     function save(Request $request)
-    {
+    {   
         if(isset($request->amount)) {
             session::put('amount', $request->amount);
             return back();
@@ -28,12 +28,14 @@ class monsterController extends Controller
         $request->validate([
             'name' => 'required|unique:monster',
             'map_id' => 'required|numeric',
+            'avatar' => 'required',
             'level' => 'required|numeric',
             'health' => 'required|numeric',
             'dmg' => 'required|numeric',
             'dmg_max' => 'required|numeric',
         ]);
 
+        
         //Drop
         $drops = array();
         foreach ($request->drops as $id=>$drop) {
@@ -57,9 +59,15 @@ class monsterController extends Controller
         $monster->class = $request->class;
         $monster->map_id = $request->map_id;
         $monster->drops = $drops;
+        $monster->avatar = $request->name.'.jpg';
         $save = $monster->save();
 
         if($save) {
+            //upload avatar
+            if(isset($request->avatar)) {
+                $imageName = $request->name.'.jpg';
+                $request->avatar->move(public_path('/monsters'), $imageName);
+            }
             return back()->with('success', 'New monster was added to database');
         } else {
             return back()->with('fail', 'Something went wrong try again later');

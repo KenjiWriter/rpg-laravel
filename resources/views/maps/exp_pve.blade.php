@@ -40,5 +40,8 @@
         <h3><red>{{ session::get('monster damage') }} <br></red></h3>
         @endif
     </div>
+    <div>
+        <button><a href="{{ route('user.adventure.cancel') }}">Finish adventure</a></button>
+    </div>
 </div>
 @include('template.footer')

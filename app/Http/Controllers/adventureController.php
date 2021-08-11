@@ -19,16 +19,16 @@ class adventureController extends Controller
         return view('user.adventure');
     }
 
-    public function startFight($map)
+    public function startFight($map,$map_id)
     {
         //Start Fight
         if(!Session::get('fight')) {
             Session::put('fight', $map);
             $random_number = rand(1,100);
             if(5 > $random_number) {
-                $monster = monster::inRandomOrder()->where('class','=','1')->whereBetween('level',[auth()->user()->level-15,auth()->user()->level+15])->limit(1)->get();
+                $monster = monster::inRandomOrder()->where('class','=','1')->where('map_id','=', $map_id)->limit(1)->get();
             } else {
-            $monster = monster::inRandomOrder()->where('class','=','0')->whereBetween('level',[auth()->user()->level-15,auth()->user()->level+15])->limit(1)->get();
+            $monster = monster::inRandomOrder()->where('class','=','0')->where('map_id' ,'=', $map_id)->limit(1)->get();
             }
             if(!$monster) {
                 return redirect('/adventure/')->with('fail','No mobs avaible for your level!');
@@ -51,13 +51,8 @@ class adventureController extends Controller
     {
         $current_map = "woods";
         
-        //Max map lvl reached
-        if(auth()->user()->level >= 15) {
-            return redirect('/adventure/')->with('fail', 'You reach max lvl cap for this map!');
-        }
-        
         //Start fight
-        $this->startFight("woods");
+        $this->startFight("woods", 1);
 
         //Fight
         $player = auth()->user();

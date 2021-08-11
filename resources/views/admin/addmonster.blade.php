@@ -1,6 +1,6 @@
 @include('template.header')
 @include('template.menu')
-<form class="FormContainer centerDiv" method="POST" action="{{ route('monster.save') }}">
+<form class="FormContainer centerDiv" method="POST" action="{{ route('monster.save') }}" enctype="multipart/form-data">
     <h3>Create new monster</h3>
     @if (Session::get('success'))
     <div style="color: greenyellow">{{ Session::get('success') }}</div>
@@ -14,7 +14,8 @@
         <option value="0">Normal</option>
         <option value="1">Boss</option>
     </select><br>
-    <label for="name" style="width: 15em;">Monster name:</label><input type="text" name="name" id="" placeholder="Wolf"><br>
+    <label for="avatar" style="margin:1em;">Avatar</label><input type="file" name="avatar" id=""><br>
+    <label align="center" for="name" style="width: 15em;">Monster name:</label><input type="text" name="name" id="" placeholder="Wolf"><br>
     <span align="center" style="color: red;">@error('name') {{ $message }} <br> @enderror</span><br>
     <label for="map_id" style="width: 15em;">Map ID:</label><input type="number" name="map_id" id="" placeholder="map id"><br>
     <span align="center" style="color: red;">@error('level') {{ $message }} <br> @enderror</span><br>

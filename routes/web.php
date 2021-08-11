@@ -24,6 +24,7 @@ Route::group(['middleware'=>['authCheck']], function(){
     Route::group(['middleware'=>['lvlCheck', 'statsCheck']], function(){
         Route::get('/profile', [mainController::class, 'profile'])->name('user.profile');
         Route::get('/adventure', [adventureController::class, 'adventure'])->name('user.adventure');
+        Route::get('/adventure/cancel', [adventureController::class, 'end'])->name('user.adventure.cancel');
         Route::get('/adventure/woods', [adventureController::class, 'woods'])->name('user.adventure.woods');
     });
 
