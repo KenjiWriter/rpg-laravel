@@ -62,6 +62,7 @@ class monsterController extends Controller
         $monster->avatar = $request->name.'.jpg';
         $save = $monster->save();
 
+        //Save
         if($save) {
             //upload avatar
             if(isset($request->avatar)) {

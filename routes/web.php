@@ -5,6 +5,7 @@ use App\Http\Controllers\mainController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\monsterController;
 use App\Http\Controllers\adventureController;
+use App\Http\Controllers\itemController;
 
 
 Route::get('/auth/logout', [authController::class, 'logout'])->name('auth.logout');
@@ -30,8 +31,12 @@ Route::group(['middleware'=>['authCheck']], function(){
 
     //Admin
     Route::group(['middleware'=>['adminPower']], function(){
+        //Monsters
     Route::get('/admin/monster/add', [monsterController::class, 'add'])->name('monster.add');
-    Route::post('/admin/monster/add', [monsterController::class, 'save'])->name('monster.save');
+    Route::post('/admin/monster/save', [monsterController::class, 'save'])->name('monster.save');
     Route::post('/admin/monster/drop/add', [monsterController::class, 'save'])->name('monster.drop.add');
+        //Items
+    Route::get('/admin/item/add', [itemController::class, 'add'])->name('item.add');
+    Route::post('/admin/item/save', [itemController::class, 'save'])->name('item.save');
     });
 });

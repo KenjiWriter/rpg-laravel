@@ -10,6 +10,7 @@
         <br>
         @if (auth()->user()->admin_power >= 10)
         <li><a href='{{ route('monster.add') }}'>Create new monster</a></li>
+        <li><a href='{{ route('item.add') }}'>Create new item</a></li>
         <br>
         @endif
         
