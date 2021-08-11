@@ -73,8 +73,8 @@ class mainController extends Controller
     {
         $user = auth()->user();
         //Convert numbers
-        $exp = $this->numConverter($user->exp);
-        $exp_needed = $this->numConverter($user->exp_needed);
+        $exp = round($this->numConverter($user->exp), 2);
+        $exp_needed = round($this->numConverter($user->exp_needed), 2);
         $health = $this->numConverter($user->health);
         $mana =$this->numConverter($user->mana);
         $stamina = $this->numConverter($user->stamina);

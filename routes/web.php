@@ -28,6 +28,9 @@ Route::group(['middleware'=>['authCheck']], function(){
     });
 
     //Admin
+    Route::group(['middleware'=>['adminPower']], function(){
     Route::get('/admin/monster/add', [monsterController::class, 'add'])->name('monster.add');
     Route::post('/admin/monster/add', [monsterController::class, 'save'])->name('monster.save');
+    Route::post('/admin/monster/drop/add', [monsterController::class, 'save'])->name('monster.drop.add');
+    });
 });

@@ -23,7 +23,7 @@ class lvlCheck
             $user->exp_needed = $user->level*5;
             $user->save();
         } else {
-            $user->exp_needed = $user->level*2.5;
+            $user->exp_needed = $user->level*9.2321;
             $user->save();
         }
         
