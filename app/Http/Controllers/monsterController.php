@@ -37,7 +37,7 @@ class monsterController extends Controller
 
         
         //Drop
-        $drops = array();
+        $drops = [];
         foreach ($request->drops as $id=>$drop) {
             if(!is_int($id)){
                 throw new Exception("Invalid drop id $id");

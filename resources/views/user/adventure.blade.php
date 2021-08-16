@@ -14,8 +14,8 @@
     </style>
 <div class="centerDiv" >
     <div style="display: flex;">
-        <div><a href="{{ route('user.adventure.woods') }}"><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px;" name="woods"><br>Woods</a><br>[lvl. 1-15]</div>
-        <div><a href=""><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px; margin-left:auto; margin-right:auto;" name="woods"><br>Woods</a></div>
+        <div><a href="{{ route('user.adventure.woods') }}"><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px;" name="woods"><br>Woods</a><br>[Rec lvl. 1-15]</div>
+        <div><a href="{{ route('user.adventure.Orcs_valley') }}"><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px; margin-left:auto; margin-right:auto;" name="Orcs_valley"><br>Orcs valley</a><br>[Rec lvl. 15-30]</div>
         <div><a href=""><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px; margin-left:auto; margin-right:auto;" name="woods"><br>Woods</a></div>
         <div><a href=""><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px; margin-left:auto; margin-right:auto;" name="woods"><br>Woods</a></div>
         <div><a href=""><img src="{{ asset('maps/woods.PNG') }}" alt="" style="width: 200px; height: 150px; margin-left:auto; margin-right:auto;" name="woods"><br>Woods</a></div>

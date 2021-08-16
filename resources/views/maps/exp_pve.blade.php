@@ -8,6 +8,9 @@
     @if(session::get('fail'))
     <red>{{ session::get('fail') }}</red>
     @endif
+    @if(session::get('drop'))
+    <green><br>{{ session::get('drop') }}</green>
+    @endif
     <div style="display: flex;">
         <div class="FormContainer">
             <img src="{{ asset('avatars/1.PNG') }}" alt="avatar" style="border-radius: 10%; width: 200px; height: 150px">
@@ -18,7 +21,7 @@
         </div>
         <div class="FormContainer">
             @foreach ($monster as $enemi)
-            <img src="{{ asset('monsters/wild_dog.PNG') }}" alt="avatar" style="border-radius: 10%; width: 200px; height: 150px">
+            <img src="{{ asset('monsters/'.$enemi->avatar) }}" alt="avatar" style="border-radius: 10%; width: 200px; height: 150px">
             <h3>
                 @if ($enemi->class == 1)
                 [BOSS] <br>
