@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use auth;
 use Session;
-use DB;
+use App\Http\Controllers\FunctionsController;
 use Illuminate\Support\Arr;
 use App\Models\User;
 use App\Models\monster;
@@ -13,6 +13,7 @@ use App\Models\item;
 
 class adventureController extends Controller
 {
+    
     function adventure()
     {
         if(session::get('fight')) {
@@ -41,6 +42,25 @@ class adventureController extends Controller
             }
             Session::put('monster', $monster);
             session::put('player_current_hp', auth()->user()->health);
+        }
+    }
+
+    public function PlayerRound($monster_hp, $player_critial_chance, $player_min_dmg, $player_max_dmg) 
+    {
+        $convert = new FunctionsController;
+        if($monster_hp >= 0) {
+            $random_number = rand(1,100);
+            $dmg = rand($player_min_dmg, $player_max_dmg);
+            if($player_critial_chance <= $random_number) {
+                $dmg *= 1.5;
+                session::put('damage', 'You deal '.$dmg.' *CRIT*');
+            } else {
+                session::put('damage', 'You deal '.$dmg);
+            }
+            session::forget('monster_current_hp');
+            $monster_hp = $monster_hp-$dmg;
+            session::put('monster_current_hp', $monster_hp);
+            return $monster_hp -= $dmg;
         }
     }
     
@@ -131,7 +151,7 @@ class adventureController extends Controller
                 $user->coins += $coins_drop;
                 $user->exp += $exp_drop;
                 $user->save();
-                session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp']);
+                session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp', 'dmg']);
                 return redirect('/adventure/woods')->with('success', 'You Won! Reward: exp+'.$exp_drop.' coins +'.$coins_drop);
             }
         } elseif($player_current_hp <= 0.00) {
@@ -151,10 +171,10 @@ class adventureController extends Controller
     
     function Orcs_valley()
     {
-        $current_map = "Orcs valley";
+        $current_map = "Orcs_valley";
         
         //Start fight
-        $this->startFight("Orcs valley", 2);
+        $this->startFight("Orcs_valley", 2);
 
         //Fight
         $player = auth()->user();
@@ -172,18 +192,7 @@ class adventureController extends Controller
         if(empty($enemi)){
             $this->end();
         }
-        if($monster_current_hp >= 0) {
-            $random_number = rand(1,100);
-            if($player->critical_chance > $random_number) {
-                $dmg = rand($player->physical_damage, $player->physical_damage_max)*1.5;
-                session::put('damage', 'You deal '.$dmg.' *CRIT*');
-            } else {
-                $dmg = rand($player->physical_damage, $player->physical_damage_max);
-                session::put('damage', 'You deal '.$dmg);
-            }
-            $monster_current_hp -= $dmg;
-            session::put('monster_current_hp', $monster_current_hp);
-        }
+        $this->PlayerRound($monster_current_hp, $monster_current_hp, $player->physical_damage, $player->physical_damage_max);
         if($player_current_hp >= 0) {
             if(isset($enemi_min_dmg)) {
                 $dmg = rand($enemi_min_dmg, $enemi_max_dmg); 
@@ -233,7 +242,7 @@ class adventureController extends Controller
                         } else {
                             session::put('drop_count', 1); 
                         }
-
+                        $item = Item::findOrFail($item_id);
                         Session::put('drop', 'Drop:'.$item->name.' '.$amount);
                     }
                 }
@@ -241,7 +250,7 @@ class adventureController extends Controller
                 $user->exp += $exp_drop;
                 $user->save();
                 session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp']);
-                return redirect('/adventure/Orcsvalley')->with('success', 'You Won! Reward: exp+'.$exp_drop.' coins +'.$coins_drop);
+                return redirect('/adventure/Orcs_valley')->with('success', 'You Won! Reward: exp+'.$exp_drop.' coins +'.$coins_drop);
             }
         } else {
             //Lose fight

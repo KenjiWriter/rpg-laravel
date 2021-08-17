@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-
+use App\Http\Controllers\FunctionsController;
 use Illuminate\Http\Request;
 use Auth;
 
 class mainController extends Controller
 {
-    public function numConverter($number) 
-    {
-        if($number >= 1000) {
-            return $number/1000 . "k";
-         }
-         else {
-             return $number;
-         }
-    }
-
     public function statAdd(Request $request) 
     {
         function add($stat, $points) 
@@ -71,23 +61,25 @@ class mainController extends Controller
 
     function profile()
     {
+        $convert = new FunctionsController;
+
         $user = auth()->user();
         //Convert numbers
-        $exp = round($this->numConverter($user->exp), 2);
-        $exp_needed = round($this->numConverter($user->exp_needed), 2);
-        $health = $this->numConverter($user->health);
-        $mana =$this->numConverter($user->mana);
-        $stamina = $this->numConverter($user->stamina);
-        $coins = $this->numConverter($user->coins);
-        $strength = $this->numConverter($user->strength);
-        $intelligence = $this->numConverter($user->intelligence);
-        $endurance = $this->numConverter($user->endurance);
-        $luck = $this->numConverter($user->luck);
-        $crit_chance = $this->numConverter($user->critical_chance);
-        $dmg = $this->numConverter($user->physical_damage);
-        $dmg_max = $this->numConverter($user->physical_damage_max);
-        $magic_dmg = $this->numConverter($user->magical_damage);
-        $magic_dmg_max = $this->numConverter($user->magical_damage_max);
+        $exp = $convert->numConverter($user->exp);
+        $exp_needed = $convert->numConverter($user->exp_needed);
+        $health = $convert->numConverter($user->health);
+        $mana = $convert->numConverter($user->mana);
+        $stamina = $convert->numConverter($user->stamina);
+        $coins = $convert->numConverter($user->coins);
+        $strength = $convert->numConverter($user->strength);
+        $intelligence = $convert->numConverter($user->intelligence);
+        $endurance = $convert->numConverter($user->endurance);
+        $luck = $convert->numConverter($user->luck);
+        $crit_chance = $convert->numConverter($user->critical_chance);
+        $dmg = $convert->numConverter($user->physical_damage);
+        $dmg_max = $convert->numConverter($user->physical_damage_max);
+        $magic_dmg = $convert->numConverter($user->magical_damage);
+        $magic_dmg_max =  $convert->numConverter($user->magical_damage_max);
         return view('user.profile', compact('exp', 'exp_needed', 'health', 'mana', 'stamina', 'strength', 'intelligence', 'endurance', 'luck', 'dmg', 'dmg_max', 'magic_dmg', 'magic_dmg_max', 'crit_chance'));
     }
 }

@@ -20,10 +20,10 @@ class lvlCheck
         $user = new User;
         $user = auth()->user();
         if(auth()->user()->level < 5) {
-            $user->exp_needed = $user->level*5;
+            $user->exp_needed = $user->level*20.1978;
             $user->save();
         } else {
-            $user->exp_needed = $user->level*9.2321;
+            $user->exp_needed = $user->level*50.8791;
             $user->save();
         }
         
