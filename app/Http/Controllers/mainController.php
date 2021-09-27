@@ -21,6 +21,9 @@ class mainController extends Controller
             $user->save();
         }
         $points = $request->amount;
+        if($points <= 0) {
+            return back()->with('fail', 'Bad amount points!'); 
+        }
         if($points == 0 || !$points) $points = 1;
 
         if(isset($request->strength)) {

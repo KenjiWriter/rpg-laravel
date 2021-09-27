@@ -18,7 +18,7 @@
             <div style="color: greenyellow">{{ Session::get('added') }}</div>
         @endif
         @if (Session::get('fail'))
-        <red>{{ Session::get('fail') }}<red>
+        <red>{{ Session::get('fail') }}</red>
         @endif
         @if (auth()->user()->stats_point <= 0)
         <label for="" style="margin-top: 20px; margin-right: 5px;">Strength:</label>{{ $strength}} <blue>||</blue> (<red>Physical damage</red> {{ $dmg }}-{{ $dmg_max }})<br>
