@@ -1,21 +1,25 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Controllers;
 
-use App\Models\User;
-use Closure;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class statsCheck
+class FunctionsController extends Controller
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next)
+    public function numConverter($number) 
+    {
+        if($number >= 1000) {
+            $number = $number/1000;
+            $converted_number = round($number, 2).'k';
+            return $converted_number;
+         }
+         else {
+             return $number;
+         }
+    }
+
+    public function checkStatus()
     {
         $user = user::where('id','=',auth()->user()->id)->first();
         if($user->physical_damage > $user->strength*3 || $user->physical_damage_max < $user->strength*5) {
@@ -35,7 +39,5 @@ class statsCheck
             $user->	critical_chance = $user->dexterity*0.5;
         }
         $user->save();
-        
-        return $next($request);
     }
 }

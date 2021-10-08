@@ -1,5 +1,5 @@
 </div>
-@livewireScripts
+
 </body>
 
 </html>
