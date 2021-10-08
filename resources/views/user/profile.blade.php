@@ -9,10 +9,10 @@
         <hr>
         <label for="nick" style="margin-right: 5px;">Nick:</label><b>{{ auth()->user()->login }}</b><br>
         @if (auth()->user()->stats_point <= 0)
-        <label for="" style="margin-top: 20px; margin-right: 5px;">Strength:</label>{{ $strength}} <blue>||</blue> (<red>Physical damage</red> {{ $dmg }}-{{ $dmg_max }})<br>
-        <label for="" style="margin-top: 20px; margin-right: 5px;">Intelligence:</label>{{ $intelligence}} <blue>||</blue> (<deepblue>Magical damage</deepblue> {{ $magic_dmg }}-{{ $magic_dmg_max }}, <deepblue>MP</deepblue> {{ $mana }})<br>
-        <label for="" style="margin-top: 20px; margin-right: 5px;">Enduracne:</label>{{ $endurance}} <blue>||</blue> (<green>HP</green> {{ $health }}, <yellow>SP</yellow> {{ $stamina }})<br>
-        <label for="" style="margin-top: 20px; margin-right: 5px;">Luck:</label>{{ $luck}} <blue>||</blue> (<red>Critical chance</red> {{ $crit_chance }}%)<br>
+        <label for="" style="margin-top: 20px; margin-right: 5px;">Strength:</label>{{ auth()->user()->strength}} <blue>||</blue> (<red>Physical damage</red> {{ auth()->user()->dmg }}-{{ auth()->user()->dmg_max }})<br>
+        <label for="" style="margin-top: 20px; margin-right: 5px;">Intelligence:</label>{{ auth()->user()->intelligence}} <blue>||</blue> (<deepblue>Magical damage</deepblue> {{ $magical_damage }}-{{ auth()->user()->magical_damage_max }}, <deepblue>MP</deepblue> {{ auth()->user()->mana }})<br>
+        <label for="" style="margin-top: 20px; margin-right: 5px;">Enduracne:</label>{{ auth()->user()->endurance}} <blue>||</blue> (<green>HP</green> {{ $health }}, <yellow>SP</yellow> {{ auth()->user()->stamina }})<br>
+        <label for="" style="margin-top: 20px; margin-right: 5px;">Luck:</label>{{ auth()->user()->dexterity}} <blue>||</blue> (<red>Critical chance</red> {{ auth()->user()->critcal_chance }}%)<br>
             @else
         @livewire('status-point')
         @endif
