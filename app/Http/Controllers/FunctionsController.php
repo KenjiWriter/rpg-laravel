@@ -7,7 +7,7 @@ use App\Models\User;
 
 class FunctionsController extends Controller
 {
-    public function numConverter($number) 
+    public static function numConverter($number) 
     {
         if($number >= 1000) {
             $number = $number/1000;
