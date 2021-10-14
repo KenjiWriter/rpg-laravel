@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use session;
 
 class FunctionsController extends Controller
 {
@@ -39,5 +40,11 @@ class FunctionsController extends Controller
             $user->	critical_chance = $user->dexterity*0.5;
         }
         $user->save();
+    }
+
+    function end()
+    {
+        session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp']);
+        return redirect('/adventure/');
     }
 }

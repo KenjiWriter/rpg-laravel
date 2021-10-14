@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Auth;
 use App\Models\User;
 use App\Http\Controllers\FunctionsController;
 
@@ -24,10 +23,10 @@ class StatusPoint extends Component
         } else {
             $this->fail = "";
         }
-        if($points > auth()->user()->stats_point) {
+        if($points > $this->user->stats_point) {
             $this->fail = "Fail! Not enought point!";
             $this->success = "";
-            return;
+            return false;
         } else {
             $this->fail = "";
         }
@@ -65,7 +64,7 @@ class StatusPoint extends Component
     
     public function render()
     {
-        $this->user = $user = user::where('id','=',auth()->user()->id)->first();
+        $this->user = user::where('id','=',auth()->user()->id)->first();
         return view('livewire.status-point');
     }
 }
