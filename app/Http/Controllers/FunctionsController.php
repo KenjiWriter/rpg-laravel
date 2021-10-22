@@ -32,19 +32,15 @@ class FunctionsController extends Controller
             $user->magical_damage_max = $user->intelligence*7;
             $user->mana = 47.5 + $user->intelligence*2.5;
         }
-        if($user->health != $user->endurance*10 || $user->stamina != $user->endurance*2.5) {
-            $user->health = $user->endurance*10;
-            $user->stamina = $user->endurance*2.5;
+        if($user->health != 100+$user->vitality*10) {
+            $user->health = 100+$user->vitality*10;
+        }
+        if($user->damage_reduction != $user->endurance * 0.1) {
+            $user->damage_reduction = $user->endurance * 0.1;
         }
         if($user->critical_chance != $user->dexterity*0.5) {
             $user->	critical_chance = $user->dexterity*0.5;
         }
         $user->save();
-    }
-
-    function end()
-    {
-        session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp']);
-        return redirect('/adventure/');
     }
 }

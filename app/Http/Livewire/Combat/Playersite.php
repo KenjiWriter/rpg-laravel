@@ -36,10 +36,13 @@ class Playersite extends Component
                     if(isset($enemi_min_dmg)) {
                             $dmg = rand($enemi_min_dmg, $enemi_max_dmg); 
                         }
-                            $player_current_hp -= $dmg;
-                            session::put('player_current_hp', $player_current_hp);
-                            $message = $enemi_name." deal ".$dmg;
-                            $this->emit('monster_message', $message);
+                    $dmg_reduction = $dmg*($this->user->damage_reduction/100);
+                    $dmg -= $dmg_reduction;
+                    $dmg = round($dmg,0);
+                    $player_current_hp -= $dmg;
+                    session::put('player_current_hp', $player_current_hp);
+                    $message = $enemi_name." deal ".$dmg;
+                    $this->emit('monster_message', $message);
                 } else {
                     //Lose
                     $this->emit('result', 2, 0, 0);

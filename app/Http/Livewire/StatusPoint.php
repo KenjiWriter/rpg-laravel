@@ -57,6 +57,10 @@ class StatusPoint extends Component
     {
         $this->add('endurance');
     }
+    public function vitality()
+    {
+        $this->add('vitality');
+    }
     public function dexterity()
     {
         $this->add('dexterity');
