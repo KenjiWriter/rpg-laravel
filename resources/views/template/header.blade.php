@@ -12,6 +12,6 @@
 
 <body>
 
-	<h3 class="center">Demons of War</h3>
+	<h3 class="center">Demons of War</h3> 
 
 	<div id="content">

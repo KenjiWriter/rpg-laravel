@@ -20,11 +20,12 @@ class Monstersite extends Component
     public function attack()
     {
         $monster_hp = session::get('monster_current_hp');
+        $player_current_hp = session::get('player_current_hp');
         $user = user::where('id','=',auth()->user()->id)->first();
         if($monster_hp >= 0) {
             $random_number = rand(1,100);
             $dmg = rand($user->physical_damage, $user->physical_damage_max);
-            if($user->critical_chance <= $random_number) {
+            if($user->critical_chance>= $random_number) {
                 $dmg *= 1.5;
                 session::put('damage', 'You deal '.$dmg.' *CRIT*');
                 $message = "You deal ".$dmg." *CRIT*";
@@ -77,7 +78,7 @@ class Monstersite extends Component
             $this->emit('drop', $drop_item, $user->exp);
             $this->emit('result', 1, $coins_drop, $exp_drop);
             $this->emit('next_battle', 1);
-            session::forget(['fight', 'monster_current_hp', 'monster', 'player_current_hp']);
+            return;
         }
     }
     

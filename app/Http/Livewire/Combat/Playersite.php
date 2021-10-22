@@ -26,7 +26,7 @@ class Playersite extends Component
         if($monster_hp >= 0)
         {
             if(isset($monster)){
-                if($player_current_hp >= 0.00 || $monster_hp <= 0) {
+                if($player_current_hp >= 0) {
                     foreach($monster as $enemi) {
                         $enemi_min_dmg = $enemi->damage;
                         $enemi_max_dmg = $enemi->damage_max;
@@ -44,7 +44,6 @@ class Playersite extends Component
                     //Lose
                     $this->emit('result', 2, 0, 0);
                     $this->emit('next_battle', 1);
-                    $function->end();
                 }  
             }
         }

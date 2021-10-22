@@ -6,6 +6,7 @@
     @livewire('combat.drop')
     <div style="display: flex;">
         @livewire('combat.playersite', ['map' => $current_map])
+        @livewire('combat.monstersite', ['map' => $current_map])
     </div>
     <div>
         @livewire('combat.messages')

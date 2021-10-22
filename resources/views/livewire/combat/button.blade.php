@@ -1,6 +1,7 @@
-
+<div>
 @if (isset($result))
-<button><a href="{{ route('user.adventure.'.$map) }}" style="color:green;">Next battle</a></button>
+<button wire:click="next" style="color:green;">Next battle</button> 
 @endif
-<button><a href="{{ route('user.adventure.cancel') }}" style="color: red;">Finish adventure</a></button>
+<button wire:click="exit" style="color:red;">Finish battle</button> <br>
+</div>
 

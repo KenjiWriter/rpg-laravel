@@ -2,4 +2,4 @@
 @livewireScripts
 </body>
 
-</html>
+</html> 
