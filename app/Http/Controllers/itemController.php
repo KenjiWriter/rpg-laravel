@@ -26,12 +26,19 @@ class itemController extends Controller
             'name' => 'required|unique:items',
             'required_lvl' => 'required|numeric',
             'icon' => 'required',
-            'strength' => 'required|numeric',
-            'intelligence' => 'required|numeric',
-            'endurance' => 'required|numeric',
-            'luck' => 'required|numeric',
+            'strength_min' => 'required|numeric',
+            'intelligence_min' => 'required|numeric',
+            'vitality_min' => 'required|numeric',
+            'endurance_min' => 'required|numeric',
+            'dexterity_min' => 'required|numeric',
             'buyPrice' => 'required|numeric',
         ]);
+
+        $strengthArr = ['min' => $request->strength_min, 'max' => $request->strength_max];
+        $intelligenceArr = ['min' => $request->intelligence_min, 'max' => $request->intelligence_max];
+        $enduranceArr = ['min' => $request->endurance_min, 'max' => $request->endurance_max];
+        $vitalityArr = ['min' => $request->vitality_min, 'max' => $request->vitality_max];
+        $dexterityArr = ['min' => $request->dexterity_min, 'max' => $request->dexterity_max];
 
         //Inser into Database
         $item = new Item;
@@ -40,10 +47,11 @@ class itemController extends Controller
         $item->type = $request->type;
         $item->rare = $request->rare;
         $item->req_lvl = $request->required_lvl;
-        $item->strength = $request->strength;
-        $item->intelligence = $request->intelligence;
-        $item->endurance = $request->endurance;
-        $item->luck = $request->luck;
+        $item->strength = json_encode($strengthArr);
+        $item->intelligence = json_encode($intelligenceArr);
+        $item->endurance = json_encode($enduranceArr);
+        $item->vitality = json_encode($vitalityArr);
+        $item->dexterity = json_encode($dexterityArr);
         $item->buyPrice = $request->buyPrice;
         $save = $item->save();
 

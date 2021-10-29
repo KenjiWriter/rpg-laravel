@@ -37,15 +37,17 @@
     <span align="center" style="color: red;">@error('name') {{ $message }} <br> @enderror</span><br>
     <label for="required_lvl" style="width: 15em">Required lvl: </label><input type="number" name="required_lvl" placeholder="99"><br>
     <span align="center" style="color: red;">@error('required_lvl') {{ $message }} <br> @enderror</span><br>
-    <label for="strength" style="width: 15em">Strength: </label><input type="number" name="strength" placeholder="15"><br>
-    <span align="center" style="color: red;">@error('strength') {{ $message }} <br> @enderror</span><br>
-    <label for="intelligence" style="width: 15em">Intelligence: </label><input type="number" name="intelligence" placeholder="10"><br>
-    <span align="center" style="color: red;">@error('intelligence') {{ $message }} <br> @enderror</span><br>
-    <label for="endurance" style="width: 15em">Endurance: </label><input type="number" name="endurance" placeholder="11"><br>
-    <span align="center" style="color: red;">@error('endurance') {{ $message }} <br> @enderror</span><br>
-    <label for="luck" style="width: 15em">Luck: </label><input type="number" name="luck" placeholder="28"><br>
-    <span align="center" style="color: red;">@error('luck') {{ $message }} <br> @enderror</span><br>
-    <label for="buyPrice" style="width: 15em">Buy price: </label><input type="number" name="buyPrice" placeholder="399"><br>
+    <label for="strength" style="width: 15em">Strength: </label><input type="number" name="strength_min" placeholder="10" style="width: 35px;">-<input type="number" name="strength_max" placeholder="15" style="width: 35px;"><br>
+    <span align="center" style="color: red;">@error('strength_min') {{ $message }} <br> @enderror</span><br>
+    <label for="intelligence" style="width: 15em">Intelligence: </label><input type="number" name="intelligence_min" placeholder="10" style="width: 35px;">-<input type="number" name="intelligence_max" placeholder="10" style="width: 35px;"><br>
+    <span align="center" style="color: red;">@error('intelligence_min') {{ $message }} <br> @enderror</span><br>
+    <label for="endurance" style="width: 15em">Endurance: </label><input type="number" name="endurance_min" placeholder="11" style="width: 35px;">-<input type="number" name="endurance_max" placeholder="19" style="width: 35px;"><br>
+    <span align="center" style="color: red;">@error('endurance_min') {{ $message }} <br> @enderror</span><br>
+    <label for="endurance" style="width: 15em">Vitality: </label><input type="number" name="vitality_min" placeholder="11" style="width: 35px;">-<input type="number" name="vitality_max" placeholder="19" style="width: 35px;"><br>
+    <span align="center" style="color: red;">@error('vitality_min') {{ $message }} <br> @enderror</span><br>
+    <label for="luck" style="width: 15em">Dexterity: </label><input type="number" name="dexterity_min" placeholder="28" style="width: 35px;">-<input type="number" name="dexterity_max" placeholder="35" style="width: 35px;"><br>
+    <span align="center" style="color: red;">@error('luck_min') {{ $message }} <br> @enderror</span><br>
+    <label for="buyPrice" style="width: 15em">Buy price: </label><input type="number" name="buyPrice" placeholder="399" style="width: 45px;"><br>
     <span align="center" style="color: red;">@error('buyPrice') {{ $message }} <br> @enderror</span><br>
     <input type="submit" value="Create">
 </form>
