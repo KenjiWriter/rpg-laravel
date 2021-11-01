@@ -52,22 +52,47 @@ class Monstersite extends Component
             $drop_item = [];
             foreach ($drop as $id => $drop) {
                 $item_id = $drop['id'];
+                $item = Item::findOrFail($item_id);
                 $random_number = rand(1,100);
                 if($drop['chances'] >= $random_number) {
                     $amount = rand($drop['amount'],$drop['max_amount']);
                     $user->items = json_decode($user->items, true);
-                    $count = $amount;
-                    if(empty($user->items[$item_id])){
-                        $count = $amount;
+                    if(empty($user->items)) {
+                        if($item->stackable == 1) {
+                            $newItem = array(['id' => $item_id, 'amount' => $amount]);
+                        } else {
+                            $newItem = array(['id' => $item_id]);
+                        }
+                        $user->items = json_encode($newItem);
                     } else {
-                        foreach($user->items[$item_id] as $player_item) {
-                            $count = $amount+$player_item;
+                        foreach($user->items as $key => $player_item) {
+                            if($player_item['id'] == $item_id) {
+                                if($item->stackable == 1) {
+                                    // $newItem = ['id' => $item_id, 'amount' => $player_item['amount']+$amount];
+                                    $player_items = $user->items;
+                                    $player_items[$key]['amount'] += $amount;
+                                    $user->items = json_encode($player_items);
+                                } else {
+                                    $newItem = ['id' => $item_id];
+                                    $player_items = $user->items;
+                                    $player_items[] = $newItem;
+                                    $user->items = json_encode($player_items);
+                                }
+                            } else {
+                                if($item->stackable == 1) {
+                                    $newItem = ['id' => $item_id, 'amount' => $amount];
+                                    $player_items = $user->items;
+                                    $player_items[] = $newItem;
+                                    $user->items = json_encode($player_items);
+                                } else {
+                                    $newItem = ['id' => $item_id];
+                                    $player_items = $user->items;
+                                    $player_items[] = $newItem;
+                                    $user->items = json_encode($player_items);
+                                }
+                            }
                         }
                     }
-                    $item_player = $user->items;
-                    $item_player[$item_id] = array('amount' => $count);
-                    $user->items = json_encode($item_player);             
-                    $item = Item::findOrFail($item_id);
                     $drop_item[] = ['name' => $item->name, 'amount' => $amount, 'quality' => $item->rare];
                 }
             }

@@ -42,6 +42,7 @@ class itemController extends Controller
 
         //Inser into Database
         $item = new Item;
+        if(isset($request->stackable)) { $item->stackable = 1; } else { $item->stackable = 0; }
         $item->name = $request->name;
         $item->icon = $request->name.'.jpg';
         $item->type = $request->type;

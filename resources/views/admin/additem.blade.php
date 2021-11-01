@@ -22,6 +22,7 @@
         <option value="9">9. Money bag</option>
         <option value="10">10. Chest key</option>
     </select><br>
+    <input type="checkbox" id="stackable" name="stackable"><label for="stackable">stackable</label><br>
     <label for="rare" style="width: 15em;">Rare type:</label>
     <select style="margin:1em;" name="rare">
         <option value="1">1. Common</option>
