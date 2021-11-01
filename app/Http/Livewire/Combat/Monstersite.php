@@ -52,16 +52,31 @@ class Monstersite extends Component
             $drop_item = [];
             foreach ($drop as $id => $drop) {
                 $item_id = $drop['id'];
-                $item = Item::findOrFail($item_id);
                 $random_number = rand(1,100);
                 if($drop['chances'] >= $random_number) {
+                    $item = Item::findOrFail($item_id);
+                    // Item stats
+                    //Decode arrays
+                    $strength = json_decode($item['strength'], true);
+                    $intelligence = json_decode($item['intelligence'], true);
+                    $endurance = json_decode($item['endurance'], true);
+                    $vitality = json_decode($item['vitality'], true);
+                    $dexterity = json_decode($item['dexterity'], true);
                     $amount = rand($drop['amount'],$drop['max_amount']);
+                    //Rand numbers from min to max
+                    $strength = rand($strength['min'], $strength['max']);
+                    $intelligence = rand($intelligence['min'], $intelligence['max']);
+                    $endurance = rand($endurance['min'], $endurance['max']);
+                    $vitality = rand($vitality['min'], $vitality['max']);
+                    $dexterity = rand($dexterity['min'], $dexterity['max']);
+
                     $user->items = json_decode($user->items, true);
                     if(empty($user->items)) {
                         if($item->stackable == 1) {
                             $newItem = array(['id' => $item_id, 'amount' => $amount]);
                         } else {
-                            $newItem = array(['id' => $item_id]);
+                            $newItem = array(['id' => $item_id, 
+                            'strength' => $strength, 'intelligence' => $intelligence, 'endurance' => $endurance, 'vitality' => $vitality, 'dexterity' => $dexterity]);
                         }
                         $user->items = json_encode($newItem);
                     } else {
@@ -73,7 +88,8 @@ class Monstersite extends Component
                                     $player_items[$key]['amount'] += $amount;
                                     $user->items = json_encode($player_items);
                                 } else {
-                                    $newItem = ['id' => $item_id];
+                                    $newItem = ['id' => $item_id,
+                                    'strength' => $strength, 'intelligence' => $intelligence, 'endurance' => $endurance, 'vitality' => $vitality, 'dexterity' => $dexterity];
                                     $player_items = $user->items;
                                     $player_items[] = $newItem;
                                     $user->items = json_encode($player_items);
@@ -85,7 +101,8 @@ class Monstersite extends Component
                                     $player_items[] = $newItem;
                                     $user->items = json_encode($player_items);
                                 } else {
-                                    $newItem = ['id' => $item_id];
+                                    $newItem = ['id' => $item_id,
+                                    'strength' => $strength, 'intelligence' => $intelligence, 'endurance' => $endurance, 'vitality' => $vitality, 'dexterity' => $dexterity];
                                     $player_items = $user->items;
                                     $player_items[] = $newItem;
                                     $user->items = json_encode($player_items);
