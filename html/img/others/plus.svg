@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+    <defs>
+        <style>
+            .svg-plus-main:hover .svg-plus {
+                fill: gray;
+                cursor: pointer;
+            }
+            .svg-plus-main:hover {
+                cursor: pointer;
+            }
+        </style>
+    </defs>
+    <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+</svg>

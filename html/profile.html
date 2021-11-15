@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/menu/menu.css">
+    <link rel="stylesheet" href="./css/profile/profile.css">
+    <link rel="stylesheet" href="./css/main/main.css">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Start Item Info -->
+        <div id="item-info" >
+            <div class="item-info-p1">
+                <!-- <div class="item-info-dimg" > -->
+                    <img src="./img/items/pierscien.png" alt="Item Info" width="40%" height="90%" />
+                <!-- </div> -->
+                <div class="item-name">
+                    <h3>Pierścień</h3>
+                    <p>[Req. lvl 52] / x62</p>
+                    <p>Req. stats:</p>
+                    <div class="req-stats">
+                        <div class="req-stats-1">
+                            <div class="req-stats-val">
+                                <span class="l1">Str:</span>
+                                <span class="l2">10</span>
+                            </div>
+                            <div class="req-stats-val">
+                                <span class="l1">Dex:</span>
+                                <span class="l2">52</span>
+                            </div>
+                        </div>
+                        <div class="req-stats-2">
+                            <div class="req-stats-val">
+                                <span class="l1">Int:</span>
+                                <span class="l2">20</span>
+                            </div>
+                            <div class="req-stats-val">
+                                <span class="l1">End:</span>
+                                <span class="l2">50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-info-p2">
+                <h3>Statistics:</h3>
+                <ul>
+                    <li>Strength: 58</li>
+                    <li>Vitality: 102</li>
+                    <li>Endurance: 52</li>
+                </ul>
+            </div>
+            <div class="item-info-p3">
+                <h3>Bonus:</h3>
+                <ul>
+                    <li>5% dodge chance</li>
+                    <li>11% chance to stun</li>
+                    <li>--empty--</li>
+                    <li>--empty--</li>
+                </ul>
+            </div>
+            <div class="item-info-p4">
+                <button class="btn-eq btn">Załóż</button>
+                <button class="btn-sell btn" onClick="showPopupSell()" >Sprzedaj</button>
+            </div>
+        </div>
+        <!-- Koniec Item info -->
+            <div class="menu">
+                <div class="info">
+                    <img src="./img/avatars/avatar-1.png" id="info-avatar">
+                    <div class="info2">
+                        <span class="span-info">Poziom: 80 <br /></span>
+                        <span class="span-info">Złoto: 10 000 <br /></span>
+                    </div>
+                </div>
+                <nav>
+                    <button class="btn-nav" style="border-top: 3px solid #828282">Profile</button> <br />
+                    <button class="btn-nav">Inventory</button> <br />
+                    <button class="btn-nav">Combat Arena</button> <br />
+                    <button class="btn-nav">Attack Shop</button> <br />
+                    <button class="btn-nav">Blacksmith</button> <br />
+                    <button class="btn-nav">Hospital</button> <br />
+                    <button class="btn-nav">Chat</button> <br />
+                    <button class="btn-nav">Create monster</button> <br />
+                    <button class="btn-nav">Create item</button> <br />
+                    <button class="btn-nav">Create attack</button> <br />
+                </nav>
+            </div>
+        <section>
+            <div class="profile">
+                <!-- Start Popup -->
+                <div class="popup" id="popup">
+                    <div class="popup-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" onclick="showPopup()" fill="gold" width="24" height="24" viewBox="0 0 24 24" class='close-popup-svg' >
+                            <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+                        </svg>
+                        <div class="popup-info-l">
+                            <button class="popup-info-title">
+                                <span class="title">Monster hunter</span>
+                                <span class="owned-green">Owned</span>
+                            </button>
+                            <button class="popup-info-title">
+                                <span class="title">Monster hunter</span>
+                                <span class="owned-green">Owned</span>
+                            </button>
+                            <button class="popup-info-title">
+                                <span class="title">Billionaire</span>
+                                <span class="owned-red">Not owned</span>
+                            </button>
+                        </div>
+                        <div class="popup-info-r">
+                            <h1>Billionaire</h1>
+                            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam odio corrupti corporis inventore! Et quibusdam unde ex officiis, iure doloremque dolores aperiam sit fuga accusamus corporis voluptates, mollitia quae provident praesentium obcaecati nemo cupiditate labore.</span>
+                            <div class="bonus">
+                                <h4>BONUS:</h4>
+                                <span>+5% gold earning when title is equipped</span>
+                                <div class="center">
+                                    <div class="max-goal">
+                                        <span class="span-progress">72%</span>
+                                        <div class="current-progress"></div>
+                                    </div>
+                                </div>
+                                <span>Have 1.000.000.000 gold in a bag</span>
+                                <span>720.000.000/1.000.000.000 gold</span>
+                            </div>
+                            <div class="center">
+                                <button class="btn-use-title">Use this title</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Koniec popup -->
+                <div id="popup-sell-bg">
+                    <div id="popup-sell">
+                        <h3>Are u sure u want sell this item?</h3>
+                        <div>
+                            <button class="yes btn" onClick="showPopupSell()">Yes</button>
+                            <button class="no btn" onClick="showPopupSell()">No</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="r1">
+                    <!-- Lewo góra -->
+                    <div class="lg">
+                        <div class="eq-1">
+                            <embed src="./img/items/zbroja.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/talizman.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/talizman.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                        </div>
+                        <div class="eq-2">
+                            <div class="div-rel">
+                                <img src="./img/avatars/avatar-1.png" id="avatar-img" width="300px" height="300px">
+                                <div class="div-abs">
+                                    <div class="avatar-title">
+                                        <span class='span-title'>TITLE</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="gold" viewBox="0 0 24 24" class='loupe-main' onclick="showPopup()" >
+                                            <path d="M23.111 20.058l-4.977-4.977c.965-1.52 1.523-3.322 1.523-5.251 0-5.42-4.409-9.83-9.829-9.83-5.42 0-9.828 4.41-9.828 9.83s4.408 9.83 9.829 9.83c1.834 0 3.552-.505 5.022-1.383l5.021 5.021c2.144 2.141 5.384-1.096 3.239-3.24zm-20.064-10.228c0-3.739 3.043-6.782 6.782-6.782s6.782 3.042 6.782 6.782-3.043 6.782-6.782 6.782-6.782-3.043-6.782-6.782zm2.01-1.764c1.984-4.599 8.664-4.066 9.922.749-2.534-2.974-6.993-3.294-9.922-.749z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="avatar-nick">NICKNAME</div>
+                                </div>
+                            </div>
+                            <span class="span-lvl">Poziom: 80</span>
+                            <div class="max-xp">
+                                <span class="span-xp">122/932</span>
+                                <div class="cr-xp"></div>
+                            </div>
+                            <embed src="./img/items/bron.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                        </div>
+                        <div class="eq-3">
+                            <embed src="./img/items/naszyjnik.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" width="128px" height="128px" class="inv-item" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                        </div>
+                    </div>
+                    <!-- Lewo dół -->
+                    <div class="ld">
+                        <h2>Stats:</h2>
+                        <div class="ld-child">
+                            <div class="stats-column">
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Strengh: 124</span>
+                                    <button class="button-svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+                                            <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Intelligence: 124</span>
+                                    <button class="button-svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+                                            <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Endurance: 292</span>
+                                    <button class="button-svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+                                            <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Dexterity: 152</span>
+                                    <button class="button-svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+                                            <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Vitality: 99</span>
+                                    <button class="button-svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.809" height="11.807" enable-background="new 0 0 11.809 11.807" viewBox="0 0 11.809 11.807" class="svg-plus-main">
+                                            <path fill="#000000" fill-rule="evenodd" stroke="#231f20" stroke-miterlimit="2.613" stroke-width=".216" d="  M5.904,0.108c3.2,0,5.796,2.596,5.796,5.796c0,3.2-2.596,5.795-5.796,5.795S0.108,9.104,0.108,5.904  C0.108,2.704,2.704,0.108,5.904,0.108L5.904,0.108z M2.518,4.839v2.194h2.256V9.29h2.194V7.033h2.256V4.839H6.968V2.583H4.773v2.256  H2.518z" clip-rule="evenodd" class="svg-plus"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="stats-column-2">
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Physical damage: <br />372.00-620.00</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Magical damage: <br /> 620-868, MP 357.50</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Damage reduction: <br /> 000</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">Critical chance: 76.00%</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="./img/others/achiev.png" width="32px" height="32px">
+                                    <span class="stat-name">HP: 2.92k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="r2">
+                    <div class="pgd">
+                        <div class="filters">
+                            <div>
+                                <input type="text" placeholder="Wyszukaj..." id="inventory-search" />
+                            </div>
+                            <div class="btns-filter">
+                                <button class="btn-filter">Filter 1</button>
+                                <button class="btn-filter">Filter 2</button>
+                                <button class="btn-filter">Filter 3</button>
+                                <button class="btn-filter">Filter 4</button>
+                                <button class="btn-filter">Filter 5</button>
+                                <button class="btn-filter">Filter 6</button>
+                            </div>
+                        </div>
+                        <div class="select-filter">
+                            <select id="sorting-filter" name="sort">
+                                <option value="level-descending">poziom malejąco</option>
+                                <option value="level-ascending">poziom rosnąco</option>
+                                <option value="price-descending">cena malejąco</option>
+                                <option value="price-ascending">cena rosnąco</option>
+                            </select>
+                        </div>
+                        <div class="inventory-capacity" >Capacity: 1/64</div>
+                        <div class="inventory">
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#666699" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#3366cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#0040ff" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#666699" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#3366cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#0040ff" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#666699" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#3366cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#0040ff" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#cc00cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#666699" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#3366cc" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                            <embed src="./img/items/pierscien.png" class="inv-item" width="128px" height="128px" id="#e6e600" onclick="showItemDescription(event, this.id)" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const itemInfo = document.getElementById("item-info")
+        const popup = document.getElementById("popup")
+        const popupSell = document.getElementById("popup-sell-bg")
+
+        const showPopup = () => {
+            popup.classList.toggle("show")
+        }
+        
+        const showPopupSell = () => {
+            console.log("takl")
+            popupSell.classList.toggle("show")
+        }
+
+        const showItemDescription = (e, id) => {
+            
+            if(itemInfo.classList[0] === undefined) {
+                itemInfo.classList.toggle("show")
+
+                if(e.clientX > window.innerWidth - 310) itemInfo.style.left = `${e.clientX - 300}px`
+                else itemInfo.style.left = `${e.clientX + 20}px`
+
+                if(e.clientY > window.innerHeight - 410) itemInfo.style.top = `${e.clientY - 400}px`
+                else itemInfo.style.top = `${e.clientY}px`
+
+                itemInfo.style.backgroundColor = id
+
+            } else {
+
+                if(e.clientX > window.innerWidth - 310) itemInfo.style.left = `${e.clientX - 300}px`
+                else itemInfo.style.left = `${e.clientX + 20}px`
+
+                if(e.clientY > window.innerHeight - 410) itemInfo.style.top = `${e.clientY - 400}px`
+                else itemInfo.style.top = `${e.clientY}px`
+
+                itemInfo.style.backgroundColor = id
+            }
+
+
+            // setTimeout(() => {
+            //     itemInfo.classList.remove("show")
+            // }, 2000);
+        }
+
+        window.addEventListener('click', () => {
+            if(event.target !== itemInfo && event.target.classList[0] !== "inv-item") {
+                itemInfo.classList.remove('show')
+            }
+        })
+
+    </script>
+
+</body>
+</html>
