@@ -14,32 +14,30 @@
         <!-- Start Item Info -->
         <div id="item-info" >
             <div class="item-info-p1">
-                <!-- <div class="item-info-dimg" > -->
-                    <img src="./img/items/pierscien.png" alt="Item Info" width="40%" height="90%" />
-                <!-- </div> -->
+                <img src="./img/items/pierscien.png" alt="Item Info" width="40%" height="90%" />
                 <div class="item-name">
-                    <h3>Pierścień</h3>
-                    <p>[Req. lvl 52] / x62</p>
+                    <h3 id="item-info-name" >Pierścień</h3>
+                    <p>[Req. lvl <span id="item-info-req-lvl" >52</span>] / x62</p>
                     <p>Req. stats:</p>
                     <div class="req-stats">
                         <div class="req-stats-1">
                             <div class="req-stats-val">
                                 <span class="l1">Str:</span>
-                                <span class="l2">10</span>
+                                <span class="l2" id="item-info-str" >10</span>
                             </div>
                             <div class="req-stats-val">
                                 <span class="l1">Dex:</span>
-                                <span class="l2">52</span>
+                                <span class="l2" id="item-info-dex" >52</span>
                             </div>
                         </div>
                         <div class="req-stats-2">
                             <div class="req-stats-val">
                                 <span class="l1">Int:</span>
-                                <span class="l2">20</span>
+                                <span class="l2" id="item-info-int" >20</span>
                             </div>
                             <div class="req-stats-val">
                                 <span class="l1">End:</span>
-                                <span class="l2">50</span>
+                                <span class="l2" id="item-info-end" >50</span>
                             </div>
                         </div>
                     </div>
@@ -48,18 +46,20 @@
             <div class="item-info-p2">
                 <h3>Statistics:</h3>
                 <ul>
-                    <li>Strength: 58</li>
-                    <li>Vitality: 102</li>
-                    <li>Endurance: 52</li>
+                    <li>Strength: <span id="item-info-stat-str">58</span></li>
+                    <li>Intelligence: <span id="item-info-stat-int">60</span></li>
+                    <li>Endurance: <span id="item-info-stat-end">52</span></li>
+                    <li>Vitality: <span id="item-info-stat-vit">102</span></li>
+                    <li>Dexterity: <span id="item-info-stat-dex">60</span></li>
                 </ul>
             </div>
             <div class="item-info-p3">
                 <h3>Bonus:</h3>
                 <ul>
-                    <li>5% dodge chance</li>
-                    <li>11% chance to stun</li>
-                    <li>--empty--</li>
-                    <li>--empty--</li>
+                    <li><span id="item-info-bonus-1">5% dodge chance</span> </li>
+                    <li><span id="item-info-bonus-2">11% chance to stun</span> </li>
+                    <li><span id="item-info-bonus-3">--empty--</span></li>
+                    <li><span id="item-info-bonus-4">--empty--</span></li>
                 </ul>
             </div>
             <div class="item-info-p4">
@@ -352,7 +352,27 @@
             if(event.target !== itemInfo && event.target.classList[0] !== "inv-item") {
                 itemInfo.classList.remove('show')
             }
-        })
+        });
+
+        const setItemInfo = (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14) => {
+                document.getElementById('item-info-name').innerHTML = s0
+                document.getElementById('item-info-req-lvl').innerHTML = s1
+                document.getElementById('item-info-str').innerHTML = s2
+                document.getElementById('item-info-dex').innerHTML = s3
+                document.getElementById('item-info-int').innerHTML = s4
+                document.getElementById('item-info-end').innerHTML = s5
+                document.getElementById('item-info-stat-str').innerHTML = s6
+                document.getElementById('item-info-stat-int').innerHTML = s7
+                document.getElementById('item-info-stat-end').innerHTML = s8
+                document.getElementById('item-info-stat-vit').innerHTML = s9
+                document.getElementById('item-info-stat-dex').innerHTML = s10
+                document.getElementById('item-info-bonus-1').innerHTML = s11
+                document.getElementById('item-info-bonus-2').innerHTML = s12
+                document.getElementById('item-info-bonus-3').innerHTML = s13
+                document.getElementById('item-info-bonus-4').innerHTML = s14
+            }
+
+        setItemInfo('Nazwa', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Bonus 1', 'Bonus 2', 'Bonus 3', 'Bonus 4')
 
     </script>
 
