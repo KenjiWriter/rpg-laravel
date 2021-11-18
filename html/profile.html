@@ -14,7 +14,7 @@
         <!-- Start Item Info -->
         <div id="item-info" >
             <div class="item-info-p1">
-                <img src="./img/items/pierscien.png" alt="Item Info" width="40%" height="90%" />
+                <img src="./img/items/pierscien.png" alt="Item Info" width="40%" height="90%" id="item-info-img" />
                 <div class="item-name">
                     <h3 id="item-info-name" >Pierścień</h3>
                     <p>[Req. lvl <span id="item-info-req-lvl" >52</span>] / x62</p>
@@ -354,7 +354,7 @@
             }
         });
 
-        const setItemInfo = (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14) => {
+        const setItemInfo = (s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15) => {
                 document.getElementById('item-info-name').innerHTML = s0
                 document.getElementById('item-info-req-lvl').innerHTML = s1
                 document.getElementById('item-info-str').innerHTML = s2
@@ -370,9 +370,10 @@
                 document.getElementById('item-info-bonus-2').innerHTML = s12
                 document.getElementById('item-info-bonus-3').innerHTML = s13
                 document.getElementById('item-info-bonus-4').innerHTML = s14
+                document.getElementById('item-info-img').src = s15
             }
 
-        setItemInfo('Nazwa', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Bonus 1', 'Bonus 2', 'Bonus 3', 'Bonus 4')
+        setItemInfo('Nazwa', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Bonus 1', 'Bonus 2', 'Bonus 3', 'Bonus 4', './img/items/zbroja.png')
 
     </script>
 
