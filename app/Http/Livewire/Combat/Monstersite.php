@@ -80,19 +80,24 @@ class Monstersite extends Component
                         }
                         $user->items = json_encode($newItem);
                     } else {
+                        $id = 0;
                         foreach($user->items as $key => $player_item) {
-                            if($player_item['id'] == $item_id) {
+                            if($item_id == $player_item['id']) {
+                                $id++;
                                 if($item->stackable == 1) {
-                                    // $newItem = ['id' => $item_id, 'amount' => $player_item['amount']+$amount];
                                     $player_items = $user->items;
                                     $player_items[$key]['amount'] += $amount;
                                     $user->items = json_encode($player_items);
                                 } else {
-                                    $newItem = ['id' => $item_id,
-                                    'strength' => $strength, 'intelligence' => $intelligence, 'endurance' => $endurance, 'vitality' => $vitality, 'dexterity' => $dexterity];
-                                    $player_items = $user->items;
-                                    $player_items[] = $newItem;
-                                    $user->items = json_encode($player_items);
+                                    if($id > 1) {
+                                        continue;
+                                    } else {
+                                        $newItem = ['id' => $item_id,
+                                        'strength' => $strength, 'intelligence' => $intelligence, 'endurance' => $endurance, 'vitality' => $vitality, 'dexterity' => $dexterity];
+                                        $player_items = $user->items;
+                                        $player_items[] = $newItem;
+                                        $user->items = json_encode($player_items);
+                                    }
                                 }
                             } else {
                                 if($item->stackable == 1) {
